@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '../components/card.astro';
+const pizzas = await getCollection('pizzas');
+console.log(pizzas);
+---
+
+<section class="bg-[url(../../public/fondo2.png)] w-full h-dvh bg-cover bg-center mask-r-from-30% mask-clip-padding border-3 p-10">
+   <!-- Contenido de la sección -->
+    <div class="">
+        <div class="flex flex-col items-center justify-center h-full"> 
+               <h1 class="flex items-center text-3xl text-red-500 shadow-2xl" > ------<svg fill="red" width="100px"  viewBox="-3 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M11.816 3.746a.55.55 0 0 1-.193-.035 14.657 14.657 0 0 0-10.246-.005.554.554 0 0 1-.386-1.04 15.767 15.767 0 0 1 11.018.006.554.554 0 0 1-.193 1.074zm-.446.922s-.311-.12-.697-.243a13.82 13.82 0 0 0-8.202-.05c-.43.132-.84.29-.84.29a.463.463 0 0 0-.262.61l4.943 11.95c.1.241.263.241.363 0L11.631 5.28a.464.464 0 0 0-.26-.61zM2.85 6.372a1.425 1.425 0 1 1 1.425 1.425A1.425 1.425 0 0 1 2.85 6.372zm3.662 6.971a1.425 1.425 0 1 1 1.425-1.425 1.425 1.425 0 0 1-1.425 1.425zM8.17 9.388a1.425 1.425 0 1 1 1.425-1.425A1.425 1.425 0 0 1 8.17 9.388z"/></svg>-----</h1> 
+                <h1 class="text-3xl text-red-700">--------<span class="text-white font-bold font-mono text-3xl">Nuestros Tamaños De Pizza</span>--------</h1>
+        </div>
+    </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {pizzas.map((pizza:any) => (
+            <Card
+                title={pizza.data.title}
+                description={pizza.data.description}
+                imageUrl={pizza.data.img}
+            />
+        ))}
+       </div>
+</section>
