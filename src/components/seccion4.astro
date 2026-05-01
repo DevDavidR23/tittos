@@ -1,0 +1,194 @@
+---
+// SeccionCombos.astro
+// Sección 4: Combos Pizzeros + Nuevos Sabores + Banner CTA
+// 100% Tailwind CSS — misma plantilla que MenuSabores.astro
+// Imágenes: coloca en /public/ y reemplaza los placeholders
+
+const combos = [
+  {
+    nombre: "Mediana + Postobón 1.5",
+    precio: "$42.000",
+  },
+  {
+    nombre: "Familiar + Postobón 1.5",
+    precio: "$54.000",
+  },
+];
+
+const nuevosSabores = [
+  {
+    nombre: "Brasilera",
+    ingredientes: "Chorizo + Topping de Cerdo + Tomate + Pepperoni + Limón al Gusto",
+  },
+  {
+    nombre: "Suprema",
+    ingredientes: "Pepperoni + Pimentón + Cebolla + Champiñón + Topping de Cerdo",
+  },
+  {
+    nombre: "Pollo Ranch",
+    ingredientes: "Tocineta Salsa Ranch + Pollo + Cebolla + Tomate + Tocineta",
+  },
+];
+
+
+const whatsappLink = "https://wa.me/573227744136?text=Hola!%20Quiero%20pedir%20una%20pizza";
+---
+
+<!-- ══════════════════════════════════════════
+     BLOQUE SUPERIOR: Combos + Nuevos Sabores
+══════════════════════════════════════════ -->
+<section class="relative flex items-stretch bg-[#1a1a1a] min-h-[420px] overflow-hidden">
+
+  <!-- ── Imagen decorativa IZQUIERDA (botella / pizza combo) ──
+       Reemplaza el div interior por:
+       <img src="/combo-deco.png" alt="" class="w-full h-full object-cover object-center" />
+  -->
+  <div class="hidden md:flex flex-shrink-0 w-40 lg:w-52 xl:w-64 overflow-hidden" aria-hidden="true">
+     <img src="../../public/Postobon_1.5.png" alt="" class="w-full h-full object-cover object-center bg-gradient-to-r from-[#2d0e00] to-[#1a1a1a] " />
+    <!-- <img src="/combo-deco.png" alt="" class="w-full h-full object-cover object-center" /> -->
+  </div>
+
+  <!-- ── Contenido central ── -->
+  <div class="flex-1 flex flex-col md:flex-row gap-8 md:gap-0 px-4 sm:px-6 md:px-8 py-8 relative z-0">
+
+    <!-- Columna izquierda: Combos Pizzeros -->
+    <div class="flex-1 flex flex-col bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-6 py-8 shadow-lg shadow-red-500/50">
+
+      <!-- Header rojo -->
+      <div class="bg-gradient-to-r from-red-900 via-red-700 to-red-900 rounded-xl px-6 py-3 mb-6 text-center shadow-lg shadow-red-950/60">
+        <h2 class="font-sans text-white text-xl sm:text-2xl font-bold tracking-wide drop-shadow">
+          Combos Pizzeros
+        </h2>
+      </div>
+
+      <!-- Lista de combos -->
+      <ul class="flex flex-col gap-5">
+        {combos.map((combo) => (
+          <li class="flex flex-col gap-1 bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-4 py-3 border-b border-white/5 last:border-0 transition-transform duration-200 hover:translate-x-1 cursor-default">
+            <span class="font-sans text-white text-base sm:text-lg font-medium leading-snug">
+              {combo.nombre}
+            </span>
+            <span class="font-sans text-amber-400 text-2xl sm:text-3xl font-bold tracking-wide">
+              {combo.precio}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Divisor vertical (desktop) -->
+    <div class="hidden md:block w-px mx-6" aria-hidden="true"></div>
+
+    <!-- Divisor horizontal (móvil) -->
+    <div class="md:hidden h-px bg-gradient-to-r from-transparent via-red-800/40 to-transparent" aria-hidden="true"></div>
+
+    <!-- Columna derecha: Nuevos Sabores -->
+    <div class="flex-1 flex flex-col bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-6 py-8 shadow-lg shadow-red-500/50">
+
+      <!-- Header rojo -->
+      <div class="bg-gradient-to-r from-red-900 via-red-700 to-red-900 rounded-xl px-6 py-3 mb-6 text-center shadow-lg shadow-red-950/60">
+        <h2 class="font-sans text-white text-xl sm:text-2xl font-bold tracking-wide drop-shadow">
+          Nuevos Sabores! 🔥
+        </h2>
+      </div>
+
+      <!-- Lista de sabores -->
+      <ul class="flex flex-col gap-4">
+        {nuevosSabores.map((item) => (
+          <li class="flex flex-col gap-1 bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-4 py-2 border-b border-white/5 last:border-0 transition-transform duration-200 hover:translate-x-1 cursor-default">
+            <span class="font-sans text-amber-400 text-lg sm:text-xl font-extrabold leading-snug">
+              {item.nombre}🔥
+            </span>
+            <span class="text-sm font-bold text-white  tracking-wide leading-relaxed">
+              {item.ingredientes}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── Imagen decorativa DERECHA (pizza nuevos sabores) ──
+       Reemplaza el div interior por:
+       <img src="/nuevos-deco.png" alt="" class="w-full h-full object-cover object-center" />
+  -->
+  <div class="hidden md:flex flex-shrink-0 w-40 lg:w-52 xl:w-96 relative z-0" aria-hidden="true">
+    <img src="/pizzaDEC.png" alt="" class="w-full h-full object-cover object-center bg-gradient-to-l from-[#2d0e00] to-[#1a1a1a] " />
+     <!-- <img
+    <div class="w-full h-full bg-gradient-to-l from-[#2d0e00] to-[#1a1a1a]"></div>
+    <-- <img src="/nuevos-deco.png" alt="" class="w-full h-full object-cover object-center" /> -->
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     BANNER INFERIOR: CTA — Pedir Ahora
+══════════════════════════════════════════ -->
+<div class="bg-gradient-to-r from-red-950 via-red-800 to-red-950 px-4 sm:px-8 md:px-16 py-5 md:py-6">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+
+    <!-- Icono moto + texto -->
+    <div class="flex items-center gap-4 sm:gap-5">
+      <!-- Icono SVG de moto/delivery -->
+      <svg fill="#000000"  class="w-28 fill-amber-600" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 456.482 456.482" xml:space="preserve">
+<g>
+	<path d="M96.582,228.085c-43.026,0-78.03,35.004-78.03,78.029c0,43.023,35.004,78.025,78.03,78.025h0.002
+		c43.024,0,78.027-35.002,78.027-78.025C174.611,263.089,139.607,228.085,96.582,228.085z M96.584,370.14h-0.002
+		c-35.306,0-64.03-28.722-64.03-64.025c0-35.306,28.724-64.029,64.03-64.029c35.306,0,64.029,28.724,64.029,64.029
+		C160.611,341.418,131.889,370.14,96.584,370.14z"/>
+	<path d="M96.58,281.802c-13.406,0-24.313,10.907-24.313,24.314c0,13.402,10.907,24.307,24.313,24.307
+		c13.406,0,24.313-10.904,24.313-24.307C120.893,292.709,109.986,281.802,96.58,281.802z"/>
+	<path d="M378.453,228.085c-9.499,0-18.604,1.711-27.03,4.833l-23.453-50.632c3.429,2.024,7.422,3.191,11.684,3.191
+		c3.866,0,7-3.134,7-7V146.35c0-3.866-3.134-7-7-7c-11.371,0-20.839,8.273-22.719,19.114l-16.609-35.857
+		c-1.147-2.474-3.625-4.058-6.352-4.058h-20.88c-3.866,0-7,3.134-7,7s3.134,7,7,7h16.408l10.1,21.804
+		c-0.296,0.329-0.566,0.688-0.803,1.082l-67.106,111.859h-8.423c-2.661,0-4.826-2.165-4.826-4.825v-49.828
+		c0-20.756-16.886-37.643-37.641-37.643h-54.111V79.343c0-3.866-3.134-7-7-7H7c-3.866,0-7,3.134-7,7v128.843c0,3.866,3.134,7,7,7
+		h37.324c-15.788,9.073-29.238,22.222-38.63,38.459c-1.936,3.347-0.792,7.628,2.554,9.564c3.345,1.935,7.628,0.793,9.564-2.555
+		c16.224-28.046,46.407-45.469,78.77-45.469c50.139,0,90.93,40.791,90.93,90.931c0,3.866,3.134,7,7,7h72.557
+		c2.464,0,4.746-1.295,6.009-3.41l55.475-92.854l10.238,22.104c-22.943,13.602-38.367,38.607-38.367,67.159
+		c0,43.023,35.004,78.025,78.03,78.025h0.002c43.024,0,78.027-35.002,78.027-78.025
+		C456.482,263.089,421.479,228.085,378.453,228.085z M14,174.999v-58.703h98.692v58.703H93.88H14z M112.692,86.343v15.953H14V86.343
+		H112.692z M320.62,202.833l-57.523,96.283h-61.824c-3.615-54.607-49.185-97.931-104.69-97.931c-0.853,0-82.582,0-82.582,0v-12.187
+		h166.804c13.036,0,23.641,10.607,23.641,23.643v49.828c0,10.38,8.445,18.825,18.826,18.825h12.387c2.459,0,4.737-1.29,6.003-3.399
+		l64.988-108.33l14.861,32.084C321.18,202.006,320.879,202.399,320.62,202.833z M378.455,370.14h-0.002
+		c-35.307,0-64.03-28.722-64.03-64.025c0-22.929,12.121-43.07,30.286-54.383l17.025,36.756c-4.672,4.434-7.595,10.693-7.595,17.628
+		c0,13.402,10.906,24.307,24.313,24.307c13.405,0,24.312-10.904,24.312-24.307c0-13.406-10.906-24.314-24.312-24.314
+		c-1.438,0-2.844,0.133-4.213,0.373l-16.904-36.494c6.616-2.319,13.72-3.596,21.118-3.596c35.306,0,64.029,28.724,64.029,64.029
+		C442.482,341.418,413.76,370.14,378.455,370.14z"/>
+</g>
+</svg>
+
+      <div class="flex flex-col">
+        <span class="text-white font-bold text-xl sm:text-2xl md:text-3xl leading-tight">
+          Pide tu pizza favorita
+        </span>
+        <span class="text-amber-400 font-bold text-lg sm:text-xl md:text-2xl leading-tight">
+          ¡Y disfrútala en casa!
+        </span>
+      </div>
+    </div>
+
+    <!-- Botón WhatsApp -->
+    <a
+      href={whatsappLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-3 bg-amber-400 hover:bg-amber-300 active:scale-95 text-black font-bold text-base sm:text-lg px-6 sm:px-8 py-3 rounded-lg shadow-xl transition-all duration-200 whitespace-nowrap flex-shrink-0"
+    >
+      <!-- WhatsApp icon -->
+      <svg
+        class="w-6 h-6 flex-shrink-0"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      PEDIR AHORA
+    </a>
+
+  </div>
+</div>

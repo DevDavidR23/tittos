@@ -1,41 +1,129 @@
 ---
+const whatsappLink = "https://wa.me/573227744136?text=Hola!%20Quiero%20pedir%20una%20pizza";
 
 ---
 
-<header class="bg-black text-white px-3 py-4  font-mono uppercase">
-  <div class="max-w-4/5 mx-auto flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-    
-    <!-- LOGO -->
-    <div class="flex justify-center sm:justify-start h-auto ">
-      <img 
-        src="/tittospizza.png" 
-        alt="Tittos Pizza Logo" 
-        class="h-28 sm:h-30 object-contain"
-      />
+<header class="fixed top-0 left-0 w-full z-50 bg-black text-white px-3 py-4 font-mono uppercase">
+  <div class="max-w-4/5 mx-auto sm:px-8">
+
+    <!-- MOBILE: barra logo + hamburguesa -->
+    <div class="flex items-center justify-between sm:hidden">
+      <img src="/tittospizza.png" alt="Tittos Pizza Logo" class="h-16 object-contain" />
+      <button id="burger" aria-label="Menú" aria-expanded="false" class="flex flex-col gap-1.5 p-2">
+        <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
     </div>
 
-    <!-- NAV -->
-    <nav class="sm:pl-12">
-      <ul class="flex flex-col items-center gap-3 text-lg sm:flex-row sm:gap-12 sm:justify-between sm:text-2xl">
-        <li><a href="/" class="hover:text-red-400 transition">Inicio</a></li>
-        <li><a href="/about" class="hover:text-red-400 transition">Menu</a></li>
-        <li><a href="/contact" class="hover:text-red-400 transition">Combos</a></li>
-        <li><a href="/contact" class="hover:text-red-400 transition">Contacto</a></li>
-      </ul>
+    <!-- MOBILE: menú desplegable — controlado por data-open -->
+    <nav id="mobile-nav" class="mobile-nav sm:hidden">
+      <a href="#inicio"   class="nav-anchor block w-full text-center py-3 hover:text-red-400 transition">Inicio</a>
+      <a href="#menu"     class="nav-anchor block w-full text-center py-3 hover:text-red-400 transition">Menu</a>
+      <a href="#combos"   class="nav-anchor block w-full text-center py-3 hover:text-red-400 transition">Combos</a>
+      <a href="#contacto" class="nav-anchor block w-full text-center py-3 hover:text-red-400 transition">Contacto</a>
+      <div class="pt-2 pb-1">
+        <a href={whatsappLink}    class="bg-red-500 hover:bg-red-600 transition px-10 py-3 rounded flex items-center gap-2 w-full justify-center hover:scale-105 duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+          </svg>
+          Pedir Ahora
+          
+        </a>
+      </div>
     </nav>
 
-    <!-- BOTÓN -->
-    <div class="flex justify-center sm:justify-end">
-      <button class="bg-red-500 hover:bg-red-600 transition px-10 py-3 rounded flex items-center gap-2 w-full sm:w-auto sm:text-xl justify-center hover:scale-105  duration-300">
-        
-        <!-- ICONO -->
-       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-</svg>
-
-        Pedir Ahora
-      </button>
+    <!-- DESKTOP: layout original intacto -->
+    <div class="hidden sm:flex sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex justify-start h-auto">
+        <img src="/tittospizza.png" alt="Tittos Pizza Logo" class="h-28 sm:h-30 object-contain" />
+      </div>
+      <nav class="sm:pl-12">
+        <ul class="flex flex-row gap-12 text-2xl">
+          <li><a href="#inicio"   class="nav-anchor hover:text-red-400 transition">Inicio</a></li>
+          <li><a href="#menu"     class="nav-anchor hover:text-red-400 transition">Menu</a></li>
+          <li><a href="#combos"   class="nav-anchor hover:text-red-400 transition">Combos</a></li>
+          <li><a href="#contacto" class="nav-anchor hover:text-red-400 transition">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="flex justify-end">
+        <a href={whatsappLink}   class="bg-red-500 hover:bg-red-600 transition px-10 py-3 rounded flex items-center gap-2 sm:text-xl justify-center hover:scale-105 duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.444-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+          </svg>
+          Pedir Ahora
+        </a>
+      </div>
     </div>
 
   </div>
 </header>
+
+<!-- CSS: mobile-nav cerrado por defecto, abierto con data-open -->
+<style>
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+  }
+  .mobile-nav[data-open="true"] {
+    display: flex;
+  }
+</style>
+
+<script>
+  const header    = document.querySelector('header') as HTMLElement;
+  const burger    = document.getElementById('burger') as HTMLButtonElement;
+  const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+  const lines     = burger.querySelectorAll<HTMLElement>('.burger-line');
+
+  // Offset para que fixed no tape el contenido
+  document.body.style.paddingTop = header.offsetHeight + 'px';
+
+  // Hamburguesa
+  burger.addEventListener('click', () => {
+    const isOpen = mobileNav.dataset.open === 'true';
+    mobileNav.dataset.open = isOpen ? 'false' : 'true';
+    burger.setAttribute('aria-expanded', String(!isOpen));
+    lines[0].style.transform = isOpen ? '' : 'rotate(45deg) translateY(8px)';
+    lines[1].style.opacity   = isOpen ? '1' : '0';
+    lines[2].style.transform = isOpen ? '' : 'rotate(-45deg) translateY(-8px)';
+  });
+
+  // Smooth scroll + cerrar móvil
+  document.querySelectorAll<HTMLAnchorElement>('a.nav-anchor').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href') ?? '');
+      if (!target) return;
+      window.scrollTo({
+        top: (target as HTMLElement).offsetTop - header.offsetHeight,
+        behavior: 'smooth'
+      });
+      // cerrar menú móvil
+      mobileNav.dataset.open = 'false';
+      burger.setAttribute('aria-expanded', 'false');
+      lines[0].style.transform = '';
+      lines[1].style.opacity   = '1';
+      lines[2].style.transform = '';
+    });
+  });
+
+  // Link activo por sección visible
+  const sections = ['inicio', 'menu', 'combos', 'contacto']
+    .map(id => document.getElementById(id))
+    .filter(Boolean) as HTMLElement[];
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      document.querySelectorAll('a.nav-anchor').forEach(a => {
+        a.classList.toggle('text-red-400', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    });
+  }, { rootMargin: `-${header.offsetHeight}px 0px -60% 0px` });
+
+  sections.forEach(s => observer.observe(s));
+</script>

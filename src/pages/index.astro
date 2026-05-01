@@ -1,15 +1,19 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Seccion1 from '../components/seccion1.astro';
 import Seccion2 from '../components/seccion2.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Seccion3 from '../components/seccion3.astro';
+import Seccion4 from '../components/seccion4.astro';
+import Footer from '../components/footer.astro';
 ---
 
 <Layout title="tittos pizza">
-	<Header/>
-    <Seccion1/>
-    <Seccion2/>
+  <Header/>
+  <section id="inicio"><Seccion1/></section>
+  <section id="menu"><Seccion2/></section>
+  <section id="sabores"><Seccion3/></section>
+  <section id="combos"><Seccion4/></section>
+  <section id="contacto"> <Footer/></section>
+ 
 </Layout>

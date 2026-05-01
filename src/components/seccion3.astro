@@ -1,0 +1,97 @@
+---
+// MenuSabores.astro
+// Sección de menú de sabores — 
+
+
+const saboresClasicos = [
+  { nombre: "Hawaiana", ingredientes: "Piña + Jamón" },
+  { nombre: "Pollo Champiñones", ingredientes: "Pollo + Champiñón" },
+  { nombre: "Jamón", ingredientes: "Jamón + Queso" },
+  { nombre: "Pollo Miel Mostaza", ingredientes: "Pollo + Miel Mostaza" },
+  { nombre: "Napolitana", ingredientes: "Tomate + Especias" },
+  { nombre: "BBQ", ingredientes: "Pollo + BBQ" },
+  { nombre: "Mexicana", ingredientes: "Carne + Pico de Gallo + Maíz" },
+];
+
+const saboresCasa = [
+  { nombre: "Todito", ingredientes: "Pollo + Carne + Salchicha + Pico de Gallo + Maíz" },
+  { nombre: "Pepperoni", ingredientes: "Pepperoni" },
+  { nombre: "Pepperoni + Pollo", ingredientes: "Pepperoni + Pollo" },
+  { nombre: "Pepperoni + Piña", ingredientes: "Pepperoni + Piña" },
+  { nombre: "Salami", ingredientes: "Salami + Pollo" },
+  { nombre: "Salami + Pollo", ingredientes: "Salami + Pollo" },
+  { nombre: "Salami + Piña", ingredientes: "Salami + Piña" },
+  { nombre: "Tropical", ingredientes: "Piña + Durazno + Ciruelas + Cerezas" },
+  { nombre: "Pollo, Maiz, Tocineta", ingredientes: "Pollo + Maíz + Tocineta" },
+  { nombre: "Pollo, Ciruela, Tocineta", ingredientes: "Pollo + Maíz + Ciruela" },
+];
+---
+
+<section class="relative flex items-stretch bg-[url('../../public/fondo!.png')] bg-cover min-h-[480px] overflow-hidden pt-2 md:pt-2 lg:pt-4">
+
+ 
+  <div class="hidden md:flex flex-shrink-0 w-50 lg:w-64 xl:w-96 mr-3" aria-hidden="true">
+    <img src="/pizza_deco.png" alt="" class="w-full h-full object-cover " />
+  </div>
+
+  <!-- Contenido central -->
+  <div class="flex-1 flex flex-col md:flex-row spacgap-8 md:gap-0 px-4 sm:px-6 md:px-8 py-8">
+
+    <!-- ── Columna: Sabores Clásicos ── -->
+    <div class="flex-1 flex flex-col">
+
+      <div class="bg-gradient-to-r from-red-900 via-red-700 to-red-900  px-6 py-3 mb-6 text-center shadow-lg shadow-red-950/60 rounded-xl">
+        <h2 class="font-sans text-white text-2xl font-bold tracking-wide drop-shadow">
+          Sabores Clásicos
+        </h2>
+      </div>
+
+      <ul class="flex flex-col gap-3">
+        {saboresClasicos.map((item) => (
+          <li class="ring-3 shadow-xl/20 flex flex-col border-b border-white/5 pb-3 last:border-0 last:pb-0 transition-transform duration-200 hover:translate-x-1 cursor-default bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-4 py-2">
+            <span class="font-sans text-amber-400 text-xl font-extrabold leading-snug">
+              {item.nombre}
+            </span>
+            <span class="text-[0.95rem]  text-white tracking-wide">
+              {item.ingredientes}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Divisor vertical (desktop) -->
+   <div class="hidden md:block w-px mx-6  via-red-800/40 to-transparent my-2" aria-hidden="true"></div> 
+
+    <!-- Divisor horizontal (móvil) -->
+    <div class="md:hidden h-px  md:m-0 m-2.5 bg-gradient-to-r from-transparent via-red-800/40 to-transparent" aria-hidden="true"></div>
+
+    <!-- ── Columna: Sabores de la Casa ── -->
+    <div class="flex-1 flex flex-col">
+
+      <div class="bg-gradient-to-r from-red-900 via-red-700 to-red-900 rounded px-6 py-3 mb-6 text-center shadow-lg shadow-red-950/60 rounded-xl">
+        <h2 class="font-sans text-white text-2xl font-bold tracking-wide drop-shadow">
+          Sabores de la Casa
+        </h2>
+      </div>
+
+      <ul class="flex flex-col gap-3">
+        {saboresCasa.map((item) => (
+          <li class="ring-3 shadow-2xl flex flex-col border-b border-white/5 pb-3 last:border-0 last:pb-0 transition-transform duration-200 hover:translate-x-1 cursor-default bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-4 py-2">
+            <span class="font-sans text-amber-400 text-xl font-extrabold leading-snug">
+              {item.nombre}
+            </span>
+            <span class="text-[0.95rem] font text-white tracking-wide">
+              {item.ingredientes}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+
+ 
+ 
+
+</section>

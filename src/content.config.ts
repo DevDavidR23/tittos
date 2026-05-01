@@ -7,7 +7,8 @@ const pizzas = defineCollection({
     title: z.string(),
     description: z.string(),
     img: z.string(),
-  }),
+      porciones: z.string().optional(),
+  }), 
 });
 
 export const collections = { pizzas };

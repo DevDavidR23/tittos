@@ -1,5 +1,5 @@
 ---
 title: Porción
-description: 8,000
-img: /pizzas/trozo.png
+description: $8,000
+img: /pizzas/trozo2.png
 ---
