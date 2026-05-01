@@ -1,8 +1,5 @@
 ---
-// SeccionCombos.astro
-// Sección 4: Combos Pizzeros + Nuevos Sabores + Banner CTA
-// 100% Tailwind CSS — misma plantilla que MenuSabores.astro
-// Imágenes: coloca en /public/ y reemplaza los placeholders
+
 
 const combos = [
   {
@@ -34,27 +31,21 @@ const nuevosSabores = [
 const whatsappLink = "https://wa.me/573227744136?text=Hola!%20Quiero%20pedir%20una%20pizza";
 ---
 
-<!-- ══════════════════════════════════════════
-     BLOQUE SUPERIOR: Combos + Nuevos Sabores
-══════════════════════════════════════════ -->
+
 <section class="relative flex items-stretch bg-[#1a1a1a] min-h-[420px] overflow-hidden">
 
-  <!-- ── Imagen decorativa IZQUIERDA (botella / pizza combo) ──
-       Reemplaza el div interior por:
-       <img src="/combo-deco.png" alt="" class="w-full h-full object-cover object-center" />
-  -->
+ 
   <div class="hidden md:flex flex-shrink-0 w-40 lg:w-52 xl:w-64 overflow-hidden" aria-hidden="true">
      <img src="../../public/Postobon_1.5.png" alt="" class="w-full h-full object-cover object-center bg-gradient-to-r from-[#2d0e00] to-[#1a1a1a] " />
-    <!-- <img src="/combo-deco.png" alt="" class="w-full h-full object-cover object-center" /> -->
+   
   </div>
 
   <!-- ── Contenido central ── -->
   <div class="flex-1 flex flex-col md:flex-row gap-8 md:gap-0 px-4 sm:px-6 md:px-8 py-8 relative z-0">
 
-    <!-- Columna izquierda: Combos Pizzeros -->
+   
     <div class="flex-1 flex flex-col bg-gradient-to-r from-red-900/10 to-red-700/10 rounded-lg px-6 py-8 shadow-lg shadow-red-500/50">
 
-      <!-- Header rojo -->
       <div class="bg-gradient-to-r from-red-900 via-red-700 to-red-900 rounded-xl px-6 py-3 mb-6 text-center shadow-lg shadow-red-950/60">
         <h2 class="font-sans text-white text-xl sm:text-2xl font-bold tracking-wide drop-shadow">
           Combos Pizzeros
@@ -109,26 +100,10 @@ const whatsappLink = "https://wa.me/573227744136?text=Hola!%20Quiero%20pedir%20u
 
   </div>
 
-  <!-- ── Imagen decorativa DERECHA (pizza nuevos sabores) ──
-       Reemplaza el div interior por:
-       <img src="/nuevos-deco.png" alt="" class="w-full h-full object-cover object-center" />
-  -->
+ 
   <div class="hidden md:flex flex-shrink-0 w-40 lg:w-52 xl:w-96 relative z-0" aria-hidden="true">
     <img src="/pizzaDEC.png" alt="" class="w-full h-full object-cover object-center bg-gradient-to-l from-[#2d0e00] to-[#1a1a1a] " />
-     <!-- <img
-    <div class="w-full h-full bg-gradient-to-l from-[#2d0e00] to-[#1a1a1a]"></div>
-    <-- <img src="/nuevos-deco.png" alt="" class="w-full h-full object-cover object-center" /> -->
-  </div>
-
-</section>
-
-<!-- ══════════════════════════════════════════
-     BANNER INFERIOR: CTA — Pedir Ahora
-══════════════════════════════════════════ -->
-<div class="bg-gradient-to-r from-red-950 via-red-800 to-red-950 px-4 sm:px-8 md:px-16 py-5 md:py-6">
-  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-
-    <!-- Icono moto + texto -->
+    
     <div class="flex items-center gap-4 sm:gap-5">
       <!-- Icono SVG de moto/delivery -->
       <svg fill="#000000"  class="w-28 fill-amber-600" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -170,14 +145,13 @@ const whatsappLink = "https://wa.me/573227744136?text=Hola!%20Quiero%20pedir%20u
       </div>
     </div>
 
-    <!-- Botón WhatsApp -->
     <a
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
       class="flex items-center gap-3 bg-amber-400 hover:bg-amber-300 active:scale-95 text-black font-bold text-base sm:text-lg px-6 sm:px-8 py-3 rounded-lg shadow-xl transition-all duration-200 whitespace-nowrap flex-shrink-0"
     >
-      <!-- WhatsApp icon -->
+     
       <svg
         class="w-6 h-6 flex-shrink-0"
         fill="currentColor"
