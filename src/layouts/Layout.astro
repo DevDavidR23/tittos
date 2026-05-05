@@ -40,6 +40,42 @@ const { title } = Astro.props as Props;
 
     <!-- Astro -->
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Titto's Pizza Fusagasugá",
+  "image": "https://TU-URL-ACTUAL/titospizza.webp",
+  "url": "https://TU-URL-ACTUAL",
+  "telephone": "+57 322 774 4136",
+  "servesCuisine": "Pizza",
+  "priceRange": "$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 19b #5b bis",
+    "addressLocality": "Fusagasugá",
+    "addressRegion": "Cundinamarca",
+    "postalCode": "252211",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 4.3371,
+    "longitude": -74.3636
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+    ],
+    "opens": "16:30",
+    "closes": "22:00"
+  }],
+  "sameAs": [
+    "https://wa.me/573227744136"
+  ]
+}
+</script>
   </head>
   <body class="bg-black">
 
